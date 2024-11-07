@@ -4,20 +4,7 @@ import Layout from "@Layouts/Layout.astro";
 ---
 
 <Layout title="Template" description="Template">
-	<main class="f-col f-center text-center g-3">
-		<h1 class="mt-6 fw-500">Template Astro Lifo</h1>
-		<div class="board f-col f-center br-10">
-			<Game client:only="react" />
-		</div>
-	</main>
+	<div class="board f-col f-center br-10 o-hidden mx-auto">
+		<Game client:only="react" />
+	</div>
 </Layout>
-
-<style>
-	.board {
-		width: 60%;
-		min-width: 320px;
-		aspect-ratio: 12/8;
-		background-color: #FFF;
-		border: solid 1px rgba(var(--lb-br), 0.8);
-	}
-</style>

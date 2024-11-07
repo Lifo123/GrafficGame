@@ -1,5 +1,7 @@
 ---
 import "@Assets/css/Global.css";
+import Haeder from "@Components/Header.astro";
+import Footer from "@Components/Footer.astro";
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 interface Props {
@@ -15,16 +17,20 @@ const url = site ? new URL(path, site).href : null;
 
 <script>
 	const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-	function setDarkMode(document : any) {
+	function setDarkMode(document: any) {
 		const isDark = window.matchMedia(
 			"(prefers-color-scheme: dark)",
 		).matches;
 		const theme =
 			localStorage.getItem("F-Theme") || (isDark ? "dark" : "light");
 
-		if(theme === "system"){
-			document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-			document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+		if (theme === "system") {
+			document.documentElement.classList[isDark ? "add" : "remove"](
+				"dark",
+			);
+			document.documentElement.style.colorScheme = isDark
+				? "dark"
+				: "light";
 			return;
 		}
 
@@ -81,13 +87,25 @@ const url = site ? new URL(path, site).href : null;
 		<meta name="twitter:image:alt" content="Template Image" />
 		<ViewTransitions transition:animate="initial" />
 		<!-- Styles -->
-		 <link rel="icon" href="/src/assets/Logo.svg"> 
+		<link rel="icon" href="/src/assets/Logo.svg" />
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/gh/Lifo123/FlifoCSS@main/src/output/Flifo.css"
 		/>
 	</head>
-	<body class="f-col">
-		<slot />
+	<body class="f-col mx-auto">
+		<Haeder />
+		<main class="f-col g-3" style="min-height: 65vh;">
+			<slot />
+		</main>
+
+		<Footer />
 	</body>
 </html>
+
+<style>
+	body {
+		width: 100%;
+		max-width: 800px;
+	}
+</style>

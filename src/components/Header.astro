@@ -1,3 +1,19 @@
 ---
-
+import { DarkmodeIcon } from "@lifo123/library/Darkmode";
 ---
+
+<header class="f-row f-justify-between f-align-center mb-8">
+    <a class=" fs-6 fw-600" href="https://github.com/Lifo123/">LIFO</a>
+    <div></div>
+    <DarkmodeIcon storage="F-Theme" client:only="react" />
+</header>
+
+<style >
+    header a {
+        color: rgb(var(--lb-title));
+    }
+    header {
+        padding: 1rem .3rem;
+        border-bottom: solid 1px rgba(var(--lb-br), 0.2);
+    }
+</style>

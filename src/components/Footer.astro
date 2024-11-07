@@ -1,0 +1,69 @@
+---
+import Icons from "@lifo123/library/Icons";
+---
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const currentDate = new Date();
+        const items = document.querySelectorAll(".current-date");
+        items.forEach((item) => {
+            item.innerHTML = `${currentDate.getFullYear()}`;
+        });
+    });
+</script>
+
+<footer class="f-row f-justify-between f-align-center mt-6">
+    <div class="f-row f-align-center g-2">
+        <span class="logo-container d-flex f-center">
+            <svg
+                viewBox="0 0 18.27 30.15"
+                height="30"
+                fill="rgb(var(--lb-title))"
+                style="filter:"
+                'invert(1)'
+            >
+                <g>
+                    <path
+                        d="M15.26,5.04c-.08-1.2-1.31-2.72-2.13-3.54-2.23-2.43-4.87-1.75-6.7.91-1.46,2.23-1.87,5.52-2.6,8.17-1.07,4.28-1.59,8.06-2.32,12.45-.25,1.39-.65,3.04-1.01,4.48-.15.79-.63,1.9-.47,2.63.11.04.38-.5.91-1.52,1.05-2,1.12-2.03,1.22-2.44.17-.48.17-1.42.03-2.47,2.25-2.83,3.65-5.12,5.15-8.19.95-1.78,2.01-4.12.53-5.8,2.26-.83,7.53-1.9,7.39-4.68Z"
+                    ></path>
+                    <path
+                        d="M15.19,13.51c.15.07.45-.98,1.32-1.32.82-.32,1.67.19,1.75,0,.08-.18-.76-.45-1.1-1.23-.39-.89.14-1.88-.02-1.93-.16-.06-.42,1.08-1.25,1.41-.82.31-1.75-.31-1.81-.17-.06.13.89.42,1.22,1.22.38.91-.26,1.95-.1,2.03Z"
+                    ></path>
+                </g>
+            </svg>
+        </span>
+        <div class="f-col">
+            <p
+                class="m-0 fw-600 fs-2"
+                style="color: rgb(var(--lb-title))"
+            >
+                Portfolio made with Astro
+            </p>
+            <p class="m-0 fw-500 f-row" style="color: rgb(var(--lb-title), .8); font-size: calc(var(--lb-multiplier) * 13.5px);">
+                Edgar Sanchez,  <span class="current-date ml-2"></span>
+            </p>
+        </div>
+    </div>
+    <div class="f-row g-3 mr-3">
+        <a href="https://github.com/Lifo123/" aria-label="Link to my github"><Icons icon="github" size={22}/></a>
+        <a href="https://www.linkedin.com/in/lifo3/" aria-label="Link to my linkedin"><Icons icon="linkedin" size={22} fill="var(--lb-icon)"/></a>
+    </div>
+</footer>
+
+<style is:inline>
+    .logo-container {
+        height: 40px;
+        aspect-ratio: 1/1;
+    }
+</style>
+
+<style>
+    footer {
+        padding: 1.7rem 0;
+        border-top: solid 1px rgba(var(--lb-br), 0.2);
+    }
+    footer a{
+        height: 22px;
+        width: 22px;
+    }
+</style>
